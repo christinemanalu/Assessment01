@@ -18,7 +18,8 @@
             android:padding="20dp"
             tools:context=".Main2Activity">
 
-            <TextView
+            <EditText
+                android:id="@+id/riwayatEditText"
                 android:layout_width="71dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="157dp"
@@ -89,6 +90,7 @@
                 android:layout_marginTop="12dp">
 
                 <TextView
+                    android:id="@+id/tv_discount"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Discount"

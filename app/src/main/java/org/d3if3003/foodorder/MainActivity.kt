@@ -23,21 +23,21 @@ class MainActivity : AppCompatActivity() {
         val minuman2 = binding.flurryoreo
         val minuman3 = binding.icecreamcone
 
-        val jumlahmakanan1 = binding.jumlahhoneygarlicchickenrice.text.toString()
-        val jumlahmakanan2 = binding.jumlahbeefburger.text.toString()
-        val jumlahmakanan3 = binding.jumlahregulerfries.text.toString()
+        val jumlahmakanan1 = binding.jumlahhoneygarlicchickenrice.text
+        val jumlahmakanan2 = binding.jumlahbeefburger.text
+        val jumlahmakanan3 = binding.jumlahregulerfries.text
 
-        val jumlahminuman1 = binding.jumlahfantafloat.text.toString()
-        val jumlahminuman2 = binding.jumlahflurryoreo.text.toString()
-        val jumlahminuman3 = binding.jumlahicecreamcone.text.toString()
+        val jumlahminuman1 = binding.jumlahfantafloat.text
+        val jumlahminuman2 = binding.jumlahflurryoreo.text
+        val jumlahminuman3 = binding.jumlahicecreamcone.text
 
-        val hargamakanan1 = 35.000
-        val hargamakanan2 = 30.000
-        val hargamakanan3 = 25.000
+        val hargamakanan1 = 35000
+        val hargamakanan2 = 30000
+        val hargamakanan3 = 25000
 
-        val hargaminuman1 = 15.000
-        val hargaminuman2 = 18.000
-        val hargaminuman3 = 10.000
+        val hargaminuman1 = 15000
+        val hargaminuman2 = 18000
+        val hargaminuman3 = 10000
 
         var text = ""
         var totOrder = 0.0
@@ -47,38 +47,39 @@ class MainActivity : AppCompatActivity() {
             if(!makanan1.isChecked && !makanan2.isChecked && !makanan3.isChecked && !minuman1.isChecked && !minuman2.isChecked && !minuman3.isChecked) {
                 Toast.makeText(applicationContext,"Silahkan Pilih Makanan dan Minuman", Toast.LENGTH_SHORT).show()
             } else {
-                text = ""
-                totOrder = 0.0
-                discount = 0
                 if (makanan1. isChecked) {
                     val hasil = "Honey Garlic Chicken Rice"
 
-                    val jumlahMakanan = Integer.parseInt(jumlahmakanan1) + Integer.parseInt(jumlahmakanan2) + Integer.parseInt(jumlahmakanan3)
-                    val jumlahMinuman = Integer.parseInt(jumlahminuman1) + Integer.parseInt(jumlahminuman2) + Integer.parseInt(jumlahminuman3)
+                    val jumlahMakanan = jumlahmakanan1.toString().toInt() + jumlahmakanan2.toString().toInt() + jumlahmakanan3.toString().toInt()
+                    val jumlahMinuman = jumlahminuman1.toString().toInt() + jumlahminuman2.toString().toInt() + jumlahminuman3.toString().toInt()
                     val jml = jumlahMakanan + jumlahMinuman
 
                     val cal = jml * hargamakanan1
 
                     text += "$jml \t\t $hasil \t\t\t\t\t\t\t\t\t Rp. $cal \t\t"
                     totOrder += cal
+                    Log.d("debug1",jml.toString())
+                    Log.d("debug2",cal.toString())
                     Log.d("makanan1", totOrder.toString())
                 }
                 if (makanan2.isChecked) {
                     val hasil = "Beef Burger"
 
-                    val jumlahMakanan = Integer.parseInt(jumlahmakanan1) + Integer.parseInt(jumlahmakanan2) + Integer.parseInt(jumlahmakanan3)
-                    val jml = 0
+                    val jumlahMakanan = Integer.parseInt(jumlahmakanan1.toString()) + Integer.parseInt(jumlahmakanan2.toString()) + Integer.parseInt(jumlahmakanan3.toString())
+                    val jml = jumlahMakanan
                     val cal = jml * hargamakanan2
 
                     text += "$jml \t\t $hasil \t\t\t\t\t\t\t\t\t Rp. $cal \t\t"
                     totOrder += cal
+                    Log.d("debug1",jml.toString())
+                    Log.d("debug2",cal.toString())
                     Log.d("makanan2", totOrder.toString())
                 }
                 if(makanan3.isChecked) {
                     val hasil = "Reguler Fries"
 
-                    val jumlahMakanan = Integer.parseInt(jumlahmakanan1) + Integer.parseInt(jumlahmakanan2) + Integer.parseInt(jumlahmakanan3)
-                    var jml = 0
+                    val jumlahMakanan = Integer.parseInt(jumlahmakanan1.toString()) + Integer.parseInt(jumlahmakanan2.toString()) + Integer.parseInt(jumlahmakanan3.toString())
+                    var jml = jumlahMakanan
                     val cal = jml * hargamakanan3
 
                     text += "$jml \t\t $hasil \t\t\t\t\t\t\t\t\t Rp. $cal \t\t"
@@ -87,43 +88,49 @@ class MainActivity : AppCompatActivity() {
                 }
                 if(minuman1.isChecked) {
                     val hasil = "Fanta Float"
-                    val jumlahminuman = Integer.parseInt(jumlahminuman1) + Integer.parseInt(jumlahminuman2) + Integer.parseInt(jumlahminuman3)
-                    val jml = 0
+                    val jumlahminuman = Integer.parseInt(jumlahminuman1.toString()) + Integer.parseInt(jumlahminuman2.toString()) + Integer.parseInt(jumlahminuman3.toString())
+                    val jml = jumlahminuman
                     val cal = jml * hargaminuman1
 
                     text += "$jml \t\t $hasil \t\t\t\t\t\t\t\t\t Rp. $cal \t\t"
                     totOrder += cal
                     Log.d("minuman1", totOrder.toString())
                 }
+
                 if(minuman2.isChecked) {
                     val hasil = "Flurry Oreo"
-                    val jumlahminuman = Integer.parseInt(jumlahminuman1) + Integer.parseInt(jumlahminuman2) + Integer.parseInt(jumlahminuman3)
-                    val jml = 0
+                    val jumlahminuman = Integer.parseInt(jumlahminuman1.toString()) + Integer.parseInt(jumlahminuman2.toString()) + Integer.parseInt(jumlahminuman3.toString())
+                    val jml = jumlahminuman
                     val cal = jml * hargaminuman2
 
                     text += "$jml \t\t $hasil \t\t\t\t\t\t\t\t\t Rp. $cal \t\t"
                     totOrder += cal
                     Log.d("minuman2", totOrder.toString())
                 }
+
                 if(minuman3.isChecked) {
                     val hasil = "Ice Cream Cone"
-                    val jumlahminumana = Integer.parseInt(jumlahminuman1) + Integer.parseInt(jumlahminuman2) + Integer.parseInt(jumlahminuman3)
-                    val jml = 0
+                    val jumlahminuman = Integer.parseInt(jumlahminuman1.toString()) + Integer.parseInt(jumlahminuman2.toString()) + Integer.parseInt(jumlahminuman3.toString())
+                    val jml = jumlahminuman
                     val cal = jml * hargaminuman3
 
                     text += "$jml \t\t $hasil \t\t\t\t\t\t\t\t\t Rp. $cal \t\t"
                     totOrder += cal
                     Log.d("minuman3", totOrder.toString())
                 }
-                if (totOrder > 100000)
+                if (totOrder > 100000) {
                     discount = 10000
+                }
+
+                var total = totOrder - discount
+                Log.d("CEKKEKE",discount.toString())
+                startActivity(
+                    Intent(this, MainActivity2::class.java)
+                        .putExtra("Coba", text)
+                        .putExtra("Bayar", total)
+                        .putExtra("Diskon", discount)
+                )
             }
-            startActivity(
-                Intent(this, MainActivity2::class.java)
-                    .putExtra("Coba", text)
-                    .putExtra("Bayar", totOrder)
-                    .putExtra("Diskon", discount)
-            )
 
         }
 

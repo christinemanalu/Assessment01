@@ -15,8 +15,8 @@ class MainActivity2 : AppCompatActivity() {
         setContentView(binding.root)
 
         val text = intent.getStringExtra("Coba")
-        val totOrder = intent.getIntExtra("Bayar",500)
-        val discount = intent.getDoubleExtra("Discount", 500.0)
+        val totOrder = intent.getDoubleExtra("Bayar",0.0)
+        val discount = intent.getIntExtra("Diskon",0)
 
         // coba, bayar, diskon
         binding.total.text = text.toString()
